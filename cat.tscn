@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0w6p6ig0cc4b"]
+
+[ext_resource type="Texture2D" uid="uid://cny1t4f2sf1my" path="res://sprite/Free Street Animal Pixel Art/4 Cat 2/Idle.png" id="1_hcucf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52fj1"]
+atlas = ExtResource("1_hcucf")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fl1u"]
+atlas = ExtResource("1_hcucf")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w46py"]
+atlas = ExtResource("1_hcucf")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u0g4"]
+atlas = ExtResource("1_hcucf")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hdoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52fj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fl1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w46py")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u0g4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2v165"]
+radius = 9.05539
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_2hdoq")
+animation = &"idle"
+autoplay = "idle"
+frame = 2
+frame_progress = 0.325869
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -9)
+rotation = -2.87979
+shape = SubResource("CircleShape2D_2v165")
