@@ -1,20 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://8e6pq2koqu6v"]
+[gd_scene load_steps=5 format=3 uid="uid://8e6pq2koqu6v"]
 
 [ext_resource type="PackedScene" uid="uid://c0w6p6ig0cc4b" path="res://cat.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://bxwqc74sxgp26" path="res://cat.gd" id="2_feb5d"]
+[ext_resource type="Texture2D" uid="uid://buojikurg5kwm" path="res://outside.webp" id="3_feb5d"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fc0e3"]
+[sub_resource type="TileSet" id="TileSet_feb5d"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Game" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_e2o6t")]
 position = Vector2(5, -3)
 script = ExtResource("2_feb5d")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-5, 3)
 zoom = Vector2(3, 3)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+show_behind_parent = true
+tile_set = SubResource("TileSet_feb5d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_fc0e3")
+[node name="Outside" type="Sprite2D" parent="TileMapLayer"]
+scale = Vector2(0.384766, 0.384766)
+texture = ExtResource("3_feb5d")
