@@ -47,7 +47,6 @@ radius = 9.05539
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_2hdoq")
 animation = &"idle"
-autoplay = "idle"
 frame_progress = 0.0351969
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
