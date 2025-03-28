@@ -10,36 +10,41 @@ const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+# Add the gravity.
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+
 	# Get both horizontal and vertical input
 	var direction_x := Input.get_axis("move_left", "move_right")
 	var direction_y := Input.get_axis("move_up", "move_down")
-	
+
+	# This flips the sprite based on the direction
+	if direction_x > 0:
+		animated_sprite_2d.flip_h = false
+	elif direction_x < 0:
+		animated_sprite_2d.flip_h = true
+
 	# Handle horizontal movement
 	if direction_x:
 		velocity.x = direction_x * SPEED
-		animated_sprite_2d.play("idle")
-		# This plays the animation based on the direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		animated_sprite_2d.pause()
-		# This stops the animation if no input is given
-	
+
 	# Handle vertical movement
 	if direction_y:
 		velocity.y = direction_y * SPEED
-		animated_sprite_2d.play("idle")
-		# This plays the animation based on the direction
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+
+	# Handle animation
+	if direction_x or direction_y:
+		animated_sprite_2d.play("idle")
+	else:
 		animated_sprite_2d.pause()
-		# This stops the animation if no input is given
 
 	move_and_slide()

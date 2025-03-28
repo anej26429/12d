@@ -39,17 +39,18 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2v165"]
-radius = 9.05539
+radius = 11.4018
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -24)
+position = Vector2(-3.8147e-06, -32)
+scale = Vector2(1.33333, 1.33333)
 sprite_frames = SubResource("SpriteFrames_2hdoq")
 animation = &"idle"
 frame_progress = 0.0351969
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, -9)
+position = Vector2(-7, -12)
 rotation = -2.87979
 shape = SubResource("CircleShape2D_2v165")

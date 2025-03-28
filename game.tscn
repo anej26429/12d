@@ -9,11 +9,10 @@
 [node name="Game" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_e2o6t")]
-position = Vector2(5, -3)
+motion_mode = 1
 script = ExtResource("2_feb5d")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(-5, 3)
 zoom = Vector2(3, 3)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -21,5 +20,6 @@ show_behind_parent = true
 tile_set = SubResource("TileSet_feb5d")
 
 [node name="Outside" type="Sprite2D" parent="TileMapLayer"]
-scale = Vector2(0.384766, 0.384766)
+position = Vector2(-0.000102997, -0.000102997)
+scale = Vector2(0.375, 0.375)
 texture = ExtResource("3_feb5d")
