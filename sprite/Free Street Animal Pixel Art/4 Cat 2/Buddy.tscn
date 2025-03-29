@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://xjbcroplp4gp"]
+
+[ext_resource type="Texture2D" uid="uid://bkq05h6q18pxf" path="res://sprite/Free Street Animal Pixel Art/3 Cat/Idle.png" id="1_rxlp7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojcvu"]
+atlas = ExtResource("1_rxlp7")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gahox"]
+atlas = ExtResource("1_rxlp7")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgv71"]
+atlas = ExtResource("1_rxlp7")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iaisf"]
+atlas = ExtResource("1_rxlp7")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e81cv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojcvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gahox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgv71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iaisf")
+}],
+"loop": true,
+"name": &"idle_buddy",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m8ab"]
+size = Vector2(28, 23)
+
+[node name="Buddy" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_e81cv")
+animation = &"idle_buddy"
+frame_progress = 0.093743
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-5, -11.5)
+shape = SubResource("RectangleShape2D_0m8ab")
