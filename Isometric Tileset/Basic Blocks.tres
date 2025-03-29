@@ -1,15 +1,17 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cblcvw1w6jhmc"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://cblcvw1w6jhmc"]
 
-[ext_resource type="Texture2D" uid="uid://b247cqyqqule8" path="res://Isometric Tileset/Isometric-SpriteSheet.png" id="1_tk6ik"]
+[ext_resource type="Texture2D" uid="uid://b247cqyqqule8" path="res://Isometric Tileset/Isometric-SpriteSheet.png" id="1_8qb45"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8qb45"]
+resource_local_to_scene = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cs1j5"]
 resource_name = "Basic Blocks"
-texture = ExtResource("1_tk6ik")
+texture = ExtResource("1_8qb45")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -8)
 1:0/0 = 0
-1:0/0/texture_origin = Vector2i(0, 8)
 0:1/0 = 0
 0:1/0/texture_origin = Vector2i(0, -8)
 1:1/0 = 0
@@ -47,21 +49,13 @@ texture_region_size = Vector2i(32, 32)
 3:6/0 = 0
 3:6/0/texture_origin = Vector2i(0, -8)
 0:7/0 = 0
-0:7/0/texture_origin = Vector2i(0, -8)
 1:7/0 = 0
-1:7/0/texture_origin = Vector2i(0, -8)
 2:7/0 = 0
-2:7/0/texture_origin = Vector2i(0, -8)
 3:7/0 = 0
-3:7/0/texture_origin = Vector2i(0, -8)
 0:8/0 = 0
-0:8/0/texture_origin = Vector2i(0, -8)
 1:8/0 = 0
-1:8/0/texture_origin = Vector2i(0, -8)
 2:8/0 = 0
-2:8/0/texture_origin = Vector2i(0, -8)
 3:8/0 = 0
-3:8/0/texture_origin = Vector2i(0, -8)
 6:8/0 = 0
 7:8/0 = 0
 0:9/0 = 0
@@ -154,4 +148,6 @@ tile_shape = 1
 tile_layout = 5
 tile_offset_axis = 1
 tile_size = Vector2i(32, 16)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_8qb45")
 sources/0 = SubResource("TileSetAtlasSource_cs1j5")

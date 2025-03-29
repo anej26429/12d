@@ -98,5 +98,6 @@ animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
+top_level = true
 position = Vector2(-7, -10)
 shape = SubResource("RectangleShape2D_6fl1u")
