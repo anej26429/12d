@@ -8,7 +8,7 @@ extends CharacterBody2D
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var animated_sprite_2d = $AnimatedSprite2D # Reference to the AnimatedSprite2D node
 
 # Add the gravity.
 func _physics_process(delta: float) -> void:
@@ -23,12 +23,6 @@ func _physics_process(delta: float) -> void:
 	var direction_x := Input.get_axis("move_left", "move_right")
 	var direction_y := Input.get_axis("move_up", "move_down")
 
-	# This flips the sprite based on the direction
-	if direction_x > 0:
-		animated_sprite_2d.flip_h = false
-	elif direction_x < 0:
-		animated_sprite_2d.flip_h = true
-
 	# Handle horizontal movement
 	if direction_x:
 		velocity.x = direction_x * SPEED
@@ -41,10 +35,19 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
-	# Handle animation
-	if direction_x or direction_y:
-		animated_sprite_2d.play("idle")
-	else:
-		animated_sprite_2d.pause()
+	# Update the animation based on the direction of movement
+	if direction_x > 0:
+		animated_sprite_2d.flip_h = false	# Flip sprite to face right
+		animated_sprite_2d.play("walk")		# Play walk animation
+	elif direction_x < 0:
+		animated_sprite_2d.flip_h = true	# Flip sprite to face left
+		animated_sprite_2d.play("walk")
+	elif direction_y > 0:					# Move down
+		animated_sprite_2d.play("walk")
+	elif direction_y < 0:					# Move up
+			animated_sprite_2d.play("walk")
+	else:									# No movement
+		animated_sprite_2d.play("idle") 	# Play idle animation
 
+# Move the character
 	move_and_slide()

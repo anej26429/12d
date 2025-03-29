@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0w6p6ig0cc4b"]
+[gd_scene load_steps=15 format=3 uid="uid://c0w6p6ig0cc4b"]
 
 [ext_resource type="Texture2D" uid="uid://cny1t4f2sf1my" path="res://sprite/Free Street Animal Pixel Art/4 Cat 2/Idle.png" id="1_hcucf"]
+[ext_resource type="Texture2D" uid="uid://c12g33veu2k2b" path="res://sprite/Free Street Animal Pixel Art/4 Cat 2/Walk.png" id="2_52fj1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52fj1"]
 atlas = ExtResource("1_hcucf")
@@ -17,6 +18,30 @@ region = Rect2(96, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2u0g4"]
 atlas = ExtResource("1_hcucf")
 region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hdoq"]
+atlas = ExtResource("2_52fj1")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v165"]
+atlas = ExtResource("2_52fj1")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyw7o"]
+atlas = ExtResource("2_52fj1")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rjga"]
+atlas = ExtResource("2_52fj1")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giwe8"]
+atlas = ExtResource("2_52fj1")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma4b3"]
+atlas = ExtResource("2_52fj1")
+region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2hdoq"]
 animations = [{
@@ -35,22 +60,43 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 4.0
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hdoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v165")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyw7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rjga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giwe8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ma4b3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 11.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2v165"]
-radius = 11.4018
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fl1u"]
+size = Vector2(26, 20)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-3.8147e-06, -32)
-scale = Vector2(1.33333, 1.33333)
+position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_2hdoq")
-animation = &"idle"
-frame_progress = 0.0351969
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, -12)
-rotation = -2.87979
-shape = SubResource("CircleShape2D_2v165")
+visible = false
+position = Vector2(-7, -10)
+shape = SubResource("RectangleShape2D_6fl1u")
