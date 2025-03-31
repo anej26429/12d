@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=4 uid="uid://8e6pq2koqu6v"]
+[gd_scene load_steps=7 format=4 uid="uid://8e6pq2koqu6v"]
 
 [ext_resource type="PackedScene" uid="uid://c0w6p6ig0cc4b" path="res://cat.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://bxwqc74sxgp26" path="res://cat.gd" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://xjbcroplp4gp" path="res://sprite/Free Street Animal Pixel Art/4 Cat 2/Buddy.tscn" id="3_7jktm"]
 [ext_resource type="TileSet" uid="uid://cblcvw1w6jhmc" path="res://Isometric Tileset/Basic Blocks.tres" id="3_feb5d"]
 [ext_resource type="Script" uid="uid://0fkert2enfxq" path="res://sprite/Free Street Animal Pixel Art/4 Cat 2/buddy.gd" id="4_ryrav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
+size = Vector2(34, 26)
 
 [node name="Game" type="Node2D"]
 
@@ -16,10 +19,16 @@ script = ExtResource("2_feb5d")
 zoom = Vector2(3.5, 3.5)
 editor_draw_screen = false
 
-[node name="Buddy" parent="." instance=ExtResource("3_7jktm")]
+[node name="Buddy_NPC" parent="." instance=ExtResource("3_7jktm")]
 top_level = true
 position = Vector2(88, -40)
 script = ExtResource("4_ryrav")
+
+[node name="Area2D" type="Area2D" parent="Buddy_NPC"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buddy_NPC/Area2D"]
+position = Vector2(-5, -11)
+shape = SubResource("RectangleShape2D_7jktm")
 
 [node name="Colour_Background" type="ColorRect" parent="."]
 show_behind_parent = true
@@ -36,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-color = Color(0.1504, 0.88736, 0.94, 1)
+color = Color(0.8544, 0.95296, 0.96, 1)
 metadata/_edit_lock_ = true
 
 [node name="0" type="TileMapLayer" parent="."]
@@ -46,3 +55,5 @@ tile_set = ExtResource("3_feb5d")
 rendering_quadrant_size = 32
 collision_enabled = false
 navigation_enabled = false
+
+[connection signal="body_entered" from="Buddy_NPC/Area2D" to="Buddy_NPC" method="_on_area_2d_body_entered"]
