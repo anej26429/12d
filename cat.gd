@@ -3,8 +3,8 @@ extends CharacterBody2D
 # This script handles the movement and jumping of a cat character
 # It uses the CharacterBody2D node for physics-based movement
 # The cat can move in four directions (up, down, left, right) and jump
-const SPEED = 130.0
-const JUMP_VELOCITY = -600.0
+@export var SPEED = 130.0
+@export var JUMP_VELOCITY = -600.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") # Get the default gravity value from project settings
 @onready var animated_sprite_2d = $AnimatedSprite2D # Reference to the AnimatedSprite2D node
 # Add the gravity.
